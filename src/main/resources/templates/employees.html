@@ -1,0 +1,195 @@
+<header th:insert="layout/header.html" th:remove="tag"></header>
+
+<h1>
+    Служители
+</h1>
+
+<hr />
+
+<a href="" class="btn btn-success" id="openEmployeeModal">Добави нов служител</a>
+
+<hr />
+
+<table id="myTable" class="display">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Име</th>
+        <th>Презиме</th>
+        <th>Фамилия</th>
+        <th>E-Mail</th>
+        <th>Телефонен номер</th>
+        <th>Позиция</th>
+        <th>Настройки</th>
+    </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+
+<!-- Modal -->
+<div class="modal fade" id="addFormModal" aria-labelledby="addFormModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Добавяне на нов служител</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Затвори"></button>
+            </div>
+            <div class="modal-body">
+
+                <form id="newEmployeeForm">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Име</label>
+                        <input type="text" class="form-control" id="name" name="firstName">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="middle_name" class="form-label">Презиме</label>
+                        <input type="text" class="form-control" id="middle_name" name="middleName">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="surname" class="form-label">Фамилия</label>
+                        <input type="text" class="form-control" id="surname" name="lastName">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="position" class="form-label">Проекти</label>
+                        <select class="projectSelect2 form-control" multiple="multiple" name="projectIds">
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="position" class="form-label">Технологии</label>
+                        <select class="techSelect2 form-control" multiple="multiple" name="techIds">
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="email" class="form-label">E-Mail</label>
+                        <input type="email" class="form-control" id="email" name="email">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="domain_user" class="form-label">Домейн юзър</label>
+                        <input type="text" class="form-control" id="domain_user" name="domainUser">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="computer_name" class="form-label">Име на компютър</label>
+                        <input type="text" class="form-control" id="computer_name" name="computerName">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Телефонен номер</label>
+                        <input type="text" class="form-control" id="phone" name="phone">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="position" class="form-label">Позиция</label>
+                        <input type="text" class="form-control" id="position" name="position">
+                    </div>
+
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Затвори</button>
+                <button id="createNewEmployee" type="button" class="btn btn-primary">Запази</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="editFormModal" tabindex="-1" aria-labelledby="editFormModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Редактиране на служител</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Затвори"></button>
+            </div>
+            <div class="modal-body">
+
+                <form id="editEmployeeForm">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Име</label>
+                        <input type="text" class="form-control" id="name" name="firstName">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="middle_name" class="form-label">Презиме</label>
+                        <input type="text" class="form-control" id="middle_name" name="middleName">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="surname" class="form-label">Фамилия</label>
+                        <input type="text" class="form-control" id="surname" name="lastName">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="position" class="form-label">Проекти</label>
+                        <select class="projectSelect2 form-control" multiple="multiple" name="projectIds">
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="position" class="form-label">Технологии</label>
+                        <select class="techSelect2 form-control" multiple="multiple" name="techIds">
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="email" class="form-label">E-Mail</label>
+                        <input type="email" class="form-control" id="email" name="email">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="domain_user" class="form-label">Домейн юзър</label>
+                        <input type="text" class="form-control" id="domain_user" name="domainUser">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="computer_name" class="form-label">Име на компютър</label>
+                        <input type="text" class="form-control" id="computer_name" name="computerName">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Телефонен номер</label>
+                        <input type="text" class="form-control" id="phone" name="phone">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="position" class="form-label">Позиция</label>
+                        <input type="text" class="form-control" id="position" name="position">
+                    </div>
+
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Затвори</button>
+                <button id="editEmployee" data-id="" type="button" class="btn btn-primary">Запази</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="viewEmployeeModal" tabindex="-1" aria-labelledby="viewEmployeeModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Преглед на служител</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Затвори"></button>
+            </div>
+            <div class="modal-body">
+
+                <div id="employeeDetails"></div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/js/employees.js"></script>
+
+<header th:insert="layout/footer.html" th:remove="tag"></header>

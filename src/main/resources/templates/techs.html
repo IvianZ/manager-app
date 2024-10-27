@@ -1,0 +1,80 @@
+<header th:insert="layout/header.html" th:remove="tag"></header>
+
+<h1>
+    Технологии
+</h1>
+
+<hr />
+
+<a href="" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addFormModal">Създай нова технология</a>
+
+<hr />
+
+<table id="myTable" class="display">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Заглавие</th>
+        <th>Дата на създаване</th>
+        <th>Настройки</th>
+    </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+
+<!-- Modal -->
+<div class="modal fade" id="addFormModal" tabindex="-1" aria-labelledby="addFormModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Добавяне на нова технология</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Затвори"></button>
+            </div>
+            <div class="modal-body">
+
+                <form id="newTechForm">
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Заглавие</label>
+                        <input type="text" class="form-control" id="title" name="title">
+                    </div>
+
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Затвори</button>
+                <button id="createNewTech" type="button" class="btn btn-primary">Запази</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="editFormModal" tabindex="-1" aria-labelledby="editFormModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Редактиране на технология</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Затвори"></button>
+            </div>
+            <div class="modal-body">
+
+                <form id="editTechForm">
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Заглавие</label>
+                        <input type="text" class="form-control" id="title" name="title">
+                    </div>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Затвори</button>
+                <button id="editTech" data-id="" type="button" class="btn btn-primary">Запази</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/js/techs.js"></script>
+
+<header th:insert="layout/footer.html" th:remove="tag"></header>
